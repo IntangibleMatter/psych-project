@@ -10,7 +10,7 @@ This document is written in Pandoc's Markdown format.
 ## To build this you will need
 
 - [Pandoc](https://pandoc.org)
-    - With Citeproc built in. This shouldn't be an issue but it *can* be.
+    - With [Citeproc](https://github.com/jgm/citeproc) built in. This shouldn't be an issue but it *can* be.
 - A plain text editor
     - [VSCodium](https://vscodium.com)
     - [Neovim](https://neovim.io) (this one may have a high learning curve)

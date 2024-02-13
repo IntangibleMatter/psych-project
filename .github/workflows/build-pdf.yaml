@@ -1,0 +1,24 @@
+name: Build PDF
+
+on: push
+
+jobs:
+  convert_and_publish:
+    runs-on: ubuntu_22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build document
+        uses: docker://pandoc/core:2.9
+        with:
+          args: >-
+            "moysey-rubin_psych12.md"
+            -V linkcolor:blue
+            -V geometry:margin=2cm
+            --citeproc
+            --csl="./apa.csl"
+            -o "moysey-rubin_psych12.pdf"
+      - name: Publish latest
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

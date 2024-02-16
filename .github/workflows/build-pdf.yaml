@@ -13,15 +13,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build document
-        run: pandoc
-        with:
-          args: >-
-            "moysey-rubin_psych12.md"
-            -V linkcolor:blue
-            -V geometry:margin=2cm
-            --citeproc
-            --csl="./apa.csl"
-            -o "moysey-rubin_psych12.pdf"
+        run: >-
+          pandoc
+          "moysey-rubin_psych12.md"
+          -V linkcolor:blue
+          -V geometry:margin=2cm
+          --citeproc
+          --csl="./apa.csl"
+          -o "moysey-rubin_psych12.pdf"
       - name: Publish latest
         uses: softprops/action-gh-release@v1
         env:

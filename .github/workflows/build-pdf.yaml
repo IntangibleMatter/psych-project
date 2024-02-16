@@ -6,10 +6,14 @@ jobs:
   convert_and_publish:
     runs-on: ubuntu_22.04
     steps:
+      - name: Install
+        uses: pandoc/actions/setup@{main}
+        with:
+          version: 2.19
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build document
-        uses: docker://pandoc/core:2.9
+        run: pandoc
         with:
           args: >-
             "moysey-rubin_psych12.md"
